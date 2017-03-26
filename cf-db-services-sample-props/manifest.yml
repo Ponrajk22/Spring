@@ -1,0 +1,16 @@
+---
+applications:
+  - name: cf-db-services-sample-props-vandana
+    path: target/cf-db-services-sample-props-1.0.0.RELEASE.jar
+    memory: 1024M
+    env:
+      JAVA_OPTS: -Djava.security.egd=file:/dev/./urandom
+      SPRING_PROFILES_ACTIVE: cloud
+    services:
+      - mysql_1
+
+
+buildpack: https://github.com/cloudfoundry/java-buildpack.git
+
+env:
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
